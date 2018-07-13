@@ -1,0 +1,15 @@
+{
+    "name": "Transmission G U I",
+    "description": "Nextcloud app providing remote access for Transmission torrent client",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Jure Vengušt"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}

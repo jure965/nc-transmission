@@ -1,5 +1,5 @@
 {
-    "name": "Transmission G U I",
+    "name": "Transmission",
     "description": "Nextcloud app providing remote access for Transmission torrent client",
     "type": "project",
     "license": "AGPL",

@@ -25,7 +25,7 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function index() {
-		return new TemplateResponse('transmissiongui', 'index');  // templates/index.php
+		return new TemplateResponse('nc-transmission', 'index');  // templates/index.php
 	}
 
 }

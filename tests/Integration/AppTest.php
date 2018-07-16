@@ -17,13 +17,13 @@ class AppTest extends TestCase {
 
     public function setUp() {
         parent::setUp();
-        $app = new App('transmissiongui');
+        $app = new App('nc-transmission');
         $this->container = $app->getContainer();
     }
 
     public function testAppInstalled() {
         $appManager = $this->container->query('OCP\App\IAppManager');
-        $this->assertTrue($appManager->isInstalled('transmissiongui'));
+        $this->assertTrue($appManager->isInstalled('nc-transmission'));
     }
 
 }

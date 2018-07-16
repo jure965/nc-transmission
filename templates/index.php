@@ -1,6 +1,6 @@
 <?php
-script('transmissiongui', 'script');
-style('transmissiongui', 'style');
+script('nc-transmission', 'script');
+style('nc-transmission', 'style');
 ?>
 
 <div id="app">

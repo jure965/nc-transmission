@@ -17,7 +17,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase {
 		$request = $this->getMockBuilder('OCP\IRequest')->getMock();
 
 		$this->controller = new PageController(
-			'transmissiongui', $request, $this->userId
+			'nc-transmission', $request, $this->userId
 		);
 	}
 

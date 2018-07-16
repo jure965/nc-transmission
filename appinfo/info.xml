@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>transmissiongui</id>
+    <id>nc-transmission</id>
     <name>Transmission</name>
     <summary>Nextcloud app providing remote access for Transmission torrent client</summary>
     <description><![CDATA[Control your transmission-daemon via Nextcloud.]]></description>
@@ -18,7 +18,7 @@
     <navigations>
         <navigation>
             <name>Transmission</name>
-            <route>transmissiongui.page.index</route>
+            <route>nc-transmission.page.index</route>
         </navigation>
     </navigations>
 </info>

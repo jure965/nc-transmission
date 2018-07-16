@@ -1,3 +1,36 @@
-#hello {
-	color: red;
+
+.nct-toolbar {
+	width: 100%;
+}
+
+.nct-toolbar a {
+	width: 150px;
+	display: inline-block;
+	text-align: center;
+	line-height: 44px;
+	min-height: 44px;
+}
+
+.nct-toolbar a:hover {
+	background-color: rgb(0, 130, 201);
+	color: white;
+}
+
+.nct-table {
+	width: 100%;
+}
+
+.nct-table table {
+	width: 100%;
+}
+
+.nct-table th {
+	font-weight: bold;
+	padding: 5px 5px;
+	border-bottom: 1px solid black;
+}
+
+.nct-table td {
+	padding: 5px 5px;
+	border-bottom: 1px solid #ddd;
 }

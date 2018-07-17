@@ -11,8 +11,10 @@ style('nc-transmission', 'style');
 
 	<div id="app-content">
 		<div id="app-content-wrapper">
-			<?php //print_unescaped($this->inc('content/toolbar')) ?>
-			<?php print_unescaped($this->inc('content/index')); ?>
+			<div class="nct-content">
+				<?php print_unescaped($this->inc('content/toolbar')) ?>
+				<?php print_unescaped($this->inc('content/index')); ?>
+			</div>
 		</div>
 	</div>
 </div>

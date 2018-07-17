@@ -1,3 +1,7 @@
+.nct-content {
+	flex-direction: column;
+	width: 100%;
+}
 
 .nct-toolbar {
 	width: 100%;

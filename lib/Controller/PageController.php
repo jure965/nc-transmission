@@ -6,7 +6,10 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
-use OCA\TransmissionGUI\Classes\Torrent;
+use OCA\TransmissionGUI\Utils;
+use OCA\TransmissionGUI\Torrent;
+use OCA\TransmissionGUI\TransmissionRPCRequest;
+use OCA\TransmissionGUI\TransmissionRPCResponse;
 
 class PageController extends Controller {
 	private $userId;
@@ -28,13 +31,32 @@ class PageController extends Controller {
 	 */
 	public function index() {
 
-		$entries = array(
-			new Torrent('Torrent 1 name', 1.5, 100, 'Finished', 0, 42, 4, 6, 3.2),
-			new Torrent('Torrent 2 name', 1.3, 65, 'Downloading', 6, 12, 5, 8, 0.2),
-			new Torrent('Torrent 3 name', 4.5, 84, 'Downloading', 8, 32, 1, 4, 0.1)
-		);
+		$url = 'http://localhost:9091/transmission/rpc'; // should be configurable in app
+		$data = array('method' => 'torrent-get', 'arguments' => array('fields' => array('id', 'name', 'sizeWhenDone', 'percentDone', 'status', 'peers', 'uploadRatio')), 'tag' => '1234');
 
-		return new TemplateResponse('nc-transmission', 'index', array('torrents' => $entries));  // templates/index.php
+		$header = 'X-Transmission-Session-Id:';
+
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+		$response = curl_exec($ch);
+
+		$header = substr($response, strpos($response, $header), strpos($response, '</code>') - strpos($response, $header));
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array($header));
+		$response = curl_exec($ch);
+		curl_close();
+
+		$response = json_decode($response);
+		
+		$torrents = array();
+		if ($response->result == 'success') {
+			foreach ($response->arguments->torrents as $t) {
+				array_push($torrents, new Torrent($t));
+			}
+		}
+		return new TemplateResponse('nc-transmission', 'index', array('torrents' => $torrents));  // templates/index.php
 	}
 
 }

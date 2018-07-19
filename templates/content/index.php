@@ -12,14 +12,17 @@
 			</tr>
 		</thead>
 		<tbody>
+			<?php foreach($_['torrents'] as $torrent) { ?>
 			<tr>
-				<td>Torrent name is usually super ultra long for no particular reason elongate this even more if you can of course</td>
-				<td>1.5 GB</td>
-				<td>100%</td>
-				<td>Finished</td>
-				<td>0/43</td>
-				<td>4/6</td>
-				<td>3.2</td>
+				<td><?php p($torrent->name); ?></td>
+				<td><?php p($torrent->size); ?></td>
+				<td><?php p($torrent->done); ?></td>
+				<td><?php p($torrent->status); ?></td>
+				<td><?php p($torrent->seeds); ?>/<?php p($torrent->seeds_connected); ?></td>
+				<td><?php p($torrent->peers); ?>/<?php p($torrent->peers_connected); ?></td>
+				<td><?php p($torrent->ratio); ?></td>
+			</tr>
+			<?php } ?>
 		</tbody>
 	</table>
 </div>

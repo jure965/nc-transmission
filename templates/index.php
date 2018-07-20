@@ -1,5 +1,5 @@
 <?php
-script('nc-transmission', 'script');
+script('nc-transmission', 'script', 'handlebars');
 style('nc-transmission', 'style');
 ?>
 

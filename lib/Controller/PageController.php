@@ -30,33 +30,31 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function index() {
-
-		$url = 'http://localhost:9091/transmission/rpc'; // should be configurable in app
-		$data = array('method' => 'torrent-get', 'arguments' => array('fields' => array('id', 'name', 'sizeWhenDone', 'percentDone', 'status', 'peers', 'uploadRatio')), 'tag' => '1234');
-
-		$header = 'X-Transmission-Session-Id:';
-
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-		$response = curl_exec($ch);
-
-		$header = substr($response, strpos($response, $header), strpos($response, '</code>') - strpos($response, $header));
-
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array($header));
-		$response = curl_exec($ch);
-		curl_close();
-
-		$response = json_decode($response);
-		
-		$torrents = array();
-		if ($response->result == 'success') {
-			foreach ($response->arguments->torrents as $t) {
-				array_push($torrents, new Torrent($t));
-			}
-		}
-		return new TemplateResponse('nc-transmission', 'index', array('torrents' => $torrents));  // templates/index.php
+		$parameters = ['torrents' => Torrent::getTorrents()];
+		return new TemplateResponse('nc-transmission', 'index', $parameters);  // templates/index.php
 	}
+	/**
+	* @NoAdminRequired
+	* @NoCSRFRequired
+	* 
+	* @param string $direction
+	* @param string $column
+	*/
+	public function torrents($direction = 'none', $column = 'none') {
+		$torrents = Torrent::getTorrents();
+		$torrents = Torrent::sortTorrents($torrents, $direction, $column);
 
+		if ($direction == 'asc') {
+			$direction = 'dsc';
+		} else if ($direction == 'dsc') {
+			$direction = 'asc';
+		} else {
+			$direction = 'none';
+			$column = 'none';
+		}
+
+		$sorting = ['direction' => $direction, 'column' => $column];
+		$parameters = ['torrents' => $torrents, 'sorting' => $sorting];
+		return new TemplateResponse('nc-transmission', 'index', $parameters);  // templates/index.php
+	}
 }

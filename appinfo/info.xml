@@ -13,7 +13,7 @@
     <category>tools</category>
     <bugs>https://github.com/jure965/nc-transmission/issues</bugs>
     <dependencies>
-        <nextcloud min-version="14" max-version="14"/>
+        <nextcloud min-version="14" max-version="15"/>
     </dependencies>
     <navigations>
         <navigation>

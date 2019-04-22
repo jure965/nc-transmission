@@ -2,18 +2,18 @@
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
     <id>nc-transmission</id>
-    <name>Transmission</name>
+    <name>TransmissionUI</name>
     <summary>Nextcloud app providing remote access for Transmission torrent client</summary>
-    <description><![CDATA[Control your transmission-daemon via Nextcloud.]]></description>
+    <description><![CDATA[UI for transmission-daemon in Nextcloud.]]></description>
     <version>0.0.1</version>
     <licence>agpl</licence>
     <author mail="jure.vengust@gmail.com" homepage="https://github.com/jure965/nc-transmission">Jure Vengušt</author>
-    <namespace>TransmissionGUI</namespace>
+    <namespace>TransmissionUI</namespace>
     <category>monitoring</category>
     <category>tools</category>
     <bugs>https://github.com/jure965/nc-transmission/issues</bugs>
     <dependencies>
-        <nextcloud min-version="14" max-version="15"/>
+        <nextcloud min-version="13" max-version="15"/>
     </dependencies>
     <navigations>
         <navigation>

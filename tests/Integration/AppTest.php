@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\TransmissionGUI\Tests\Integration\Controller;
+namespace OCA\TransmissionUI\Tests\Integration\Controller;
 
 use OCP\AppFramework\App;
 use Test\TestCase;

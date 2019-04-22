@@ -1,12 +1,12 @@
 <?php
 
-namespace OCA\TransmissionGUI\Tests\Unit\Controller;
+namespace OCA\TransmissionUI\Tests\Unit\Controller;
 
 use PHPUnit_Framework_TestCase;
 
 use OCP\AppFramework\Http\TemplateResponse;
 
-use OCA\TransmissionGUI\Controller\PageController;
+use OCA\TransmissionUI\Controller\PageController;
 
 
 class PageControllerTest extends PHPUnit_Framework_TestCase {

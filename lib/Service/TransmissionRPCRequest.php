@@ -1,5 +1,5 @@
 <?php
-namespace OCA\TransmissionGUI;
+namespace OCA\TransmissionUI\Service;
 
 class TransmissionRPCRequest {
     public $method; //  name of the method, type: string, required
@@ -9,6 +9,6 @@ class TransmissionRPCRequest {
     function __construct($Method, $Arguments, $tag) {
         $this->method = $Method;
         $this->arguments = $Arguments;
-        $this->tag = $Tag;
+        $this->tag = $tag;
     }
 }

@@ -1,0 +1,20 @@
+<table class="nct-table">
+    <thead>
+    <tr>
+        <th>addedDate</th>
+        <th>name</th>
+        <th>percentDone</th>
+        <th>status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each torrents}}
+        <tr>
+            <td>{{this.addedDate}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.percentDone}}</td>
+            <td>{{this.status}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

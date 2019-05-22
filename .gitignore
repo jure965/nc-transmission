@@ -1,0 +1,4 @@
+# intellij stuff
+.idea/**
+# use composer to get vendor stuff
+vendor/**

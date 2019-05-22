@@ -1,24 +1,31 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>nc-transmission</id>
-    <name>TransmissionUI</name>
-    <summary>Nextcloud app providing remote access for Transmission torrent client</summary>
+    <id>transmissionremote</id>
+    <name>Transmission Remote</name>
+    <summary>Nextcloud app providing remote access for Transmission bit torrent client</summary>
     <description><![CDATA[UI for transmission-daemon in Nextcloud.]]></description>
-    <version>0.0.1</version>
+    <version>0.0.8</version>
     <licence>agpl</licence>
-    <author mail="jure.vengust@gmail.com" homepage="https://github.com/jure965/nc-transmission">Jure Vengušt</author>
-    <namespace>TransmissionUI</namespace>
+    <author mail="jure.vengust@gmail.com" homepage="https://github.com/jure965/transmissionremote">Jure</author>
+    <namespace>transmissionremote</namespace>
     <category>monitoring</category>
     <category>tools</category>
-    <bugs>https://github.com/jure965/nc-transmission/issues</bugs>
+    <bugs>https://github.com/jure965/transmissionremote/issues</bugs>
     <dependencies>
-        <nextcloud min-version="13" max-version="15"/>
+        <nextcloud min-version="13" max-version="16"/>
     </dependencies>
     <navigations>
         <navigation>
-            <name>Transmission</name>
-            <route>nc-transmission.page.index</route>
+            <name>Transmission Remote</name>
+            <route>transmissionremote.page.index</route>
         </navigation>
     </navigations>
+    <settings>
+        <personal>OCA\transmissionremote\Settings\Personal</personal>
+        <personal-section>OCA\transmissionremote\Settings\PersonalSection</personal-section>
+    </settings>
+    <settings-sections>
+        <personal>OCA\transmissionremote\Settings\PersonalSectionOC</personal>
+    </settings-sections>
 </info>

@@ -1,4 +1,4 @@
-<table class="nct-table">
+<table class="transmissionremote-table">
     <thead>
     <tr>
         <th>addedDate</th>
@@ -10,10 +10,10 @@
     <tbody>
     {{#each torrents}}
         <tr>
-            <td>{{this.addedDate}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.percentDone}}</td>
-            <td>{{this.status}}</td>
+            <td>{{dateToStr addedDate}}</td>
+            <td>{{name}}</td>
+            <td>{{percentDone}}</td>
+            <td>{{status}}</td>
         </tr>
     {{/each}}
     </tbody>

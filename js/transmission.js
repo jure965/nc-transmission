@@ -1,10 +1,19 @@
-$(function() {
+$(function () {
 
     var mainElement = $("#app-content");
 
-    ncTransmissionWebApi.loadAllTorrents().done(function(data){
-        data.arguments.torrents = _.sortBy(data.arguments.torrents, "addedDate").reverse();
-        $(mainElement).find(".nct-content").html(Handlebars.templates['table'](data.arguments));
+    // ncTransmissionWebApi.loadAllTorrents().done(function (response) {
+    //     response = _.sortBy(response, "startDate").reverse();
+    //     $(mainElement).find(".transmissionremote-content").html(Handlebars.templates['table']({
+    //         torrents: response
+    //     }));
+    // });
+
+    ncTransmissionWebApi.loadTorrents().done(function (response) {
+        var torrents = _.sortBy(response.data, "startDate").reverse();
+        $(mainElement).find(".transmissionremote-content").html(Handlebars.templates['table']({
+            torrents: torrents
+        }));
     });
 
 });

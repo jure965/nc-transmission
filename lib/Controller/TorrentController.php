@@ -3,17 +3,15 @@
 namespace OCA\transmissionremote\Controller;
 
 use OCP\IRequest;
-use OCP\AppFramework\Http\DataResponse;
-use OCP\AppFramework\ApiController;
+use OCP\AppFramework\Http\JSONResponse;
+use OCP\AppFramework\Controller;
 use OCP\IConfig;
 
 use Transmission\Client;
 use Transmission\Transmission;
 
-class TorrentApiController extends ApiController
+class TorrentController extends Controller
 {
-
-    private $transmission;
     private $userId;
     private $config;
 
@@ -28,9 +26,8 @@ class TorrentApiController extends ApiController
      * @NoAdminRequired
      * @NoCSRFRequired
      */
-    public function index()
+    public function loadTorrents($data)
     {
-
         $user = $this->config->getUserValue($this->userId, 'transmissionremote', 'user');
         $pass = $this->config->getUserValue($this->userId, 'transmissionremote', 'pass');
         $host = $this->config->getUserValue($this->userId, 'transmissionremote', 'host');
@@ -38,13 +35,12 @@ class TorrentApiController extends ApiController
 
         $client = new Client();
         $client->authenticate($user, $pass);
-        $this->transmission = new Transmission($host, $port);
-        $this->transmission->setClient($client);
+        $transmission = new Transmission($host, $port);
+        $transmission->setClient($client);
 
+        $torrents = $transmission->all();
 
-        $torrents = $this->transmission->all();
-
-        $response = array();
+        $torrentsArray = array();
 
         foreach ($torrents as $torrent) {
             $torrObj = [
@@ -62,9 +58,17 @@ class TorrentApiController extends ApiController
                 'uploadRatio' => $torrent->getUploadRatio(),
                 'downloadDir' => $torrent->getDownloadDir(),
             ];
-            array_push($response, $torrObj);
+            array_push($torrentsArray, $torrObj);
         }
+        $response = array(
+            'data' => $torrentsArray,
+            'success' => 'true',
+            'host' => $host,
+            'port' => $port,
+            'user' => $user,
+            'pass' => $pass
+        );
 
-        return new DataResponse($response);
+        return new JSONResponse($response);
     }
 }

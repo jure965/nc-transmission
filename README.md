@@ -1,5 +1,13 @@
-# Transmission
+# Transmission Remote
 Place this app in **nextcloud/apps/**
+
+## Pre-compiling handlebars templates
+
+Thanks to Chris Mather for his wonderful video tutorial! https://www.youtube.com/watch?v=ehP1vMq_BX8
+
+1. Install npm and node (depends on your OS and preferences)
+2. Install handlebars: **npm install handlebars -g**
+3. Compile templates using handlebars: **handlebars js/templates/table.handlebars -f js/templates/table.js**
 
 ## Building the app
 

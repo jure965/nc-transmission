@@ -1,7 +1,16 @@
 ncTransmissionWebApi = (function () {
     function loadAllTorrents(data) {
         return $.ajax({
-            url: OC.generateUrl('/apps/nc-transmission/api/1.0/torrent'),
+            url: OC.generateUrl('/apps/transmissionremote/api/1.0/torrent'),
+            dataType: "json",
+            type: "GET",
+            data: data
+        })
+    }
+
+    function loadTorrents(data) {
+        return $.ajax({
+            url: OC.generateUrl('apps/transmissionremote/torrents'),
             dataType: "json",
             type: "GET",
             data: data
@@ -9,6 +18,7 @@ ncTransmissionWebApi = (function () {
     }
 
     return {
-        loadAllTorrents: loadAllTorrents
+        loadAllTorrents: loadAllTorrents,
+        loadTorrents: loadTorrents
     }
 })();

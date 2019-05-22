@@ -1,19 +1,25 @@
 {
-    "name": "jure965/transmission",
-    "description": "Nextcloud app providing remote access for Transmission torrent client",
-    "type": "project",
-    "license": "AGPL",
-    "authors": [
-        {
-            "name": "jure965"
-        }
-    ],
-    "require": {
-        "ext-curl": "*",
-        "ext-json": "*",
-        "zordius/lightncandy": "dev-master"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.4"
+  "name": "jure965/transmission",
+  "description": "Nextcloud app providing remote access for Transmission torrent client",
+  "type": "project",
+  "license": "AGPL",
+  "authors": [
+    {
+      "name": "jure965"
     }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/jure965/transmission-php"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*",
+    "kleiram/transmission-php": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.4"
+  }
 }

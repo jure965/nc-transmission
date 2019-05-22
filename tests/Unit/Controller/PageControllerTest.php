@@ -1,12 +1,12 @@
 <?php
 
-namespace OCA\TransmissionUI\Tests\Unit\Controller;
+namespace OCA\transmissionremote\Tests\Unit\Controller;
 
 use PHPUnit_Framework_TestCase;
 
 use OCP\AppFramework\Http\TemplateResponse;
 
-use OCA\TransmissionUI\Controller\PageController;
+use OCA\transmissionremote\Controller\PageController;
 
 
 class PageControllerTest extends PHPUnit_Framework_TestCase {
@@ -17,7 +17,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase {
 		$request = $this->getMockBuilder('OCP\IRequest')->getMock();
 
 		$this->controller = new PageController(
-			'nc-transmission', $request, $this->userId
+			'transmissionremote', $request, $this->userId
 		);
 	}
 

@@ -3,12 +3,20 @@ Place this app in **nextcloud/apps/**
 
 ## Pre-compiling handlebars templates
 
-Thanks to Chris Mather for his wonderful video tutorial! https://www.youtube.com/watch?v=ehP1vMq_BX8
+Thanks to Chris Mather for his wonderful video tutorial!
+https://www.youtube.com/watch?v=ehP1vMq_BX8
 
-1. Install npm and node (depends on your OS and preferences)
-2. Install handlebars: **npm install handlebars -g**
-3. Compile templates using handlebars: **handlebars js/templates/table.handlebars -f js/templates/table.js**
+Install npm and node (depends on your OS and preferences)
 
+Install handlebars:
+
+    npm install handlebars -g
+    
+Navigate to app directory and compile template using handlebars:
+
+    handlebars js/templates/table.handlebars -f js/templates/table.js
+
+Or run the script **compile-handlebars.sh** to compile in batch.
 ## Building the app
 
 The app can be built by using the provided Makefile by running:

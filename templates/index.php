@@ -1,28 +1,31 @@
 <?php
 
-$scripts = array(
+$scripts = [
     // libs
     'lib/i18next.min',
     'lib/handlebars.runtime',
     'lib/moment.min',
-//    'lib/bootstrap.min',
+
     // lib extensions
     'handlebars.helpers',
+
     // templates
     'templates/table',
+
     // model
     'model/Torrent.js',
+
     // api
     'transmission.api',
+
     // main
     'translation',
     'transmission'
-);
+];
 
-$stylesheets = array(
-//    'bootstrap.min',
+$stylesheets = [
     'style'
-);
+];
 
 script('transmissionremote', $scripts);
 style('transmissionremote', $stylesheets);
@@ -50,18 +53,16 @@ style('transmissionremote', $stylesheets);
     <!--        </div>-->
     <!--    </div>-->
 
-    <div id="transmissionremote-toolbar-h">
-        <button class="transmissionremote-button-icon"><span class="icon-add"></span></button>
-    </div>
-    <div id="app-content">
-        <div id="app-content-wrapper">
-            <div class="transmissionremote-content">
-                <div class="transmissionremote-wrapper">
-                    <div class="transmissionremote-center">
-                        <span class="transmissionremote-heavy">Loading...</span>
-                    </div>
-                </div>
+    <div id="app-content" class="transmission-remote">
+        <div class="transmission-remote-toolbar">
+            <div class="transmission-remote-button"><span class="icon-add"></span></div>
+        </div>
+        <div class="transmission-remote-loading">
+            <div class="transmission-remote-box">
+                <span class="transmission-remote-heavy">Loading...</span>
             </div>
+        </div>
+        <div class="transmission-remote-content">
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<table class="transmissionremote-table">
+<table class="transmission-remote-table">
     <thead>
     <tr>
         <th>addedDate</th>
@@ -9,9 +9,9 @@
     </thead>
     <tbody>
     {{#each torrents}}
-        <tr>
+        <tr data-torrent-id="{{id}}">
             <td>{{dateToStr addedDate}}</td>
-            <td>{{name}}</td>
+            <td class="transmission-remote-text-truncate">{{name}}</td>
             <td>{{percentDone}}</td>
             <td>{{status}}</td>
         </tr>

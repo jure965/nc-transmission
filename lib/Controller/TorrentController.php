@@ -38,9 +38,17 @@ class TorrentController extends Controller
         $transmission = new Transmission($host, $port);
         $transmission->setClient($client);
 
-        $torrents = $transmission->all();
+        try {
+            $torrents = $transmission->all();
+        } catch (\RuntimeException $e) {
+            return new JSONResponse([
+                'error' => $e->getMessage(),
+                'errorCode' => $e->getCode(),
+                'status' => 'error'
+            ]);
+        }
 
-        $torrentsArray = array();
+        $torrentsArray = [];
 
         foreach ($torrents as $torrent) {
             $torrObj = [
@@ -60,14 +68,10 @@ class TorrentController extends Controller
             ];
             array_push($torrentsArray, $torrObj);
         }
-        $response = array(
+        $response = [
             'data' => $torrentsArray,
-            'success' => 'true',
-            'host' => $host,
-            'port' => $port,
-            'user' => $user,
-            'pass' => $pass
-        );
+            'status' => 'success'
+        ];
 
         return new JSONResponse($response);
     }
